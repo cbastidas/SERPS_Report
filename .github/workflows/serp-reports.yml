@@ -1,0 +1,48 @@
+name: SERP Reports (every 30 min, gated by Europe/Malta)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # every 30 minutes (UTC)
+  workflow_dispatch: {}      # allow manual runs
+
+permissions:
+  contents: read
+
+jobs:
+  serp:
+    runs-on: ubuntu-latest
+    env:
+      # inject secrets as env vars (your script can read them or keep constants in code)
+      DATAFORSEO_USER: ${{ secrets.DATAFORSEO_USER }}
+      DATAFORSEO_PASS: ${{ secrets.DATAFORSEO_PASS }}
+      REPORTS_ROOT_ID: ${{ secrets.REPORTS_ROOT_ID }}
+      SCREENSHOTS_ROOT_ID: ${{ secrets.SCREENSHOTS_ROOT_ID }}
+      GOOGLE_APPLICATION_CREDENTIALS_JSON_PATH: ${{ github.workspace }}/service_account.json
+      # optional: force non-buffered logs
+      PYTHONUNBUFFERED: "1"
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          # tzdata via pip is fine for zoneinfo lookups in CI
+
+      - name: Write service_account.json from secret
+        shell: bash
+        run: |
+          printf '%s' "${{ secrets.SERVICE_ACCOUNT_JSON }}" > "${GOOGLE_APPLICATION_CREDENTIALS_JSON_PATH}"
+          # sanity check
+          test -s "${GOOGLE_APPLICATION_CREDENTIALS_JSON_PATH}" || (echo "Missing SA JSON" && exit 1)
+
+      - name: Run SERP script (Malta time-gated)
+        run: |
+          python your_main_script.py
