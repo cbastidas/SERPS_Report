@@ -66,7 +66,7 @@ def is_in_allowed_window(dt_local):
     if wd in (5, 6):  # Sat(5), Sun(6)
         return True
     # Weekdays:
-    if h >= 17 or h < 8:
+    if h >= 16 or h < 8:
         return True
     return False
 
