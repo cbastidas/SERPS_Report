@@ -11,16 +11,16 @@ from zoneinfo import ZoneInfo
 # =====================
 # CONFIGURATION
 # =====================
-API_USER = "seo@neatplay.com"
-API_PASS = "7cbf8facb2e8b41e"
+API_USER = os.getenv("DATAFORSEO_USER", "seo@neatplay.com")
+API_PASS = os.getenv("DATAFORSEO_PASS", "7cbf8facb2e8b41e")
 AUTH = (API_USER, API_PASS)     
-SCREENSHOTS_ROOT_ID = "103gC0AL0chUzZjLY0YPo84ARGX-PuUhc"  
+SCREENSHOTS_ROOT_ID = os.getenv("SCREENSHOTS_ROOT_ID", "103gC0AL0chUzZjLY0YPo84ARGX-PuUhc")
 
 BASE_DIR = r"C:\Users\Christian\Desktop\Leap Square\Leap Square\Scripts\SERP ScreenShots"
 SCREEN_DIR = os.path.join(BASE_DIR, "Screenshots")
 JSON_DIR   = os.path.join(BASE_DIR, "Json")
 REPORT_DIR = os.path.join(BASE_DIR, "Reports")
-REPORTS_ROOT_ID = "1IuUNGrI3yyVw67t5D9T418mDlG_A-6ch"
+REPORTS_ROOT_ID = os.getenv("REPORTS_ROOT_ID", "1IuUNGrI3yyVw67t5D9T418mDlG_A-6ch")
 
 os.makedirs(SCREEN_DIR, exist_ok=True)
 os.makedirs(JSON_DIR, exist_ok=True)
