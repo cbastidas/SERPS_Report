@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Local virtual env
+.venv/
+env/
+
+# Service account & secrets
+service_account.json
+*.json
+
+# Environment files
+.env
+
+# Logs or local outputs
+*.log
+Reports/
+Screenshots/
+Json/
