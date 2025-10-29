@@ -4,3 +4,5 @@ google-auth-oauthlib==1.2.1
 google-auth-httplib2==0.2.0
 requests==2.32.3
 pandas==2.2.2
+packaging==24.1
+tzdata==2025.1
