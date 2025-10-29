@@ -26,18 +26,7 @@ os.makedirs(SCREEN_DIR, exist_ok=True)
 os.makedirs(JSON_DIR, exist_ok=True)
 os.makedirs(REPORT_DIR, exist_ok=True)
 
-KEYWORDS = ["bets10", "bets 10 giris", "bets 10 giriş", "bets 10 güncel giriş", 
-            "bets 10 pro", "bets 10 x", "10 bets", "bets 10 indir", 
-            "bets 10 telegram", "bets 10 sorunsuz giriş", "bets 10 link", "bets 10 guncel giris",
-            "bets 10 apk", "bets 10 güncel", "bets 10 guncel", "bets 10 destek", "casino bets 10",
-            "bets 10 giriş güncel", "bts10", "b10", "b ets 10", "bet 10", "bet10", "10 bets", "10 bet",
-            "betş 10", "bets 1o", "beş 10", "best 10", "berts 10", "bets10", "bets1o", "bets-10",
-            "bets_10", "10bet", "10bets", "be ts10", "b ets10", "bets 10 güncel adres", "bets 10 giriş linki",
-            "bets 10 sorunsuz mobil giriş", "bets 10 twitter", "bets 10 github", "9006 bets 10",
-            "bets 10 giriş güncel 2024", "bets 10 giriş güncel 2025", "bets 10 sorunsuz giriş 2023",
-            "bets 10 giriş güncel 2022", "1237 bets 10 giriş", "1220 bets 10 giriş", "1275 bets 10 giriş",
-            "1222 bets 10 giriş", "bets 10 deneme bonusu", "bets 10 şikayet", "bets 10 pro5", "bets 10 üyelik",
-            "bets 10 müşteri hizmetleri"
+KEYWORDS = ["bets 10", "bets 10 giris", "bets 10 giriş", "10 bets", "bets 10 güncel", "b10", "bet 10", "bet10", "10 bets", "10 bet", "best10", "bets10", "10bet", "10bets", "bets 10 giriş güncel", "bets10 giriş güncel"
             ]
 ENGINES  = [("google", "organic")]
 DEVICES  = ["mobile"]
